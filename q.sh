@@ -45,7 +45,7 @@ else
 rm "${args[@]}" || echo -e "There is probably a folder in the things you are trying to delete.\nUse \"q delete folder [FOLDER]\". The other items are already deleted."
 fi
 else
-echo "qError: Incorrect argument"
+echo "qError: Incorrect argument. Use \"q help\" for help."
 echo "qError: Incorrect argument" >> ~/.q/commands.log
 exit
 fi
