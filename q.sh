@@ -4,19 +4,26 @@ q(){
 namearg="$1"
 args=( "$@" )
 unset args[0]
-echo ${args[@]}
 
-if "$namearg" == 'list'; then
-if "${args[0]}" == 'all'; then
-ls -a
-else
-ls
-elif "$namearg" == 'download'; then
-if "${args[1]}" == 'to'; then
-wget "${args[0]}" -P "${args[2]}"
-else
-wget "${args[0]}" -P .
-elif "$namearg" == 'go'; then
-. ~/.q/go.sh ${args[$@]}
+if [ "$namearg" == 'list' ]; then
+    if [ "${args[0]}" == 'all' ]; then
+        ls -a
+    else
+        ls
+    fi
+elif [ "$namearg" == 'download' ]; then
+    if [ "${args[1]}" == 'to' ]; then
+        wget "${args[0]}" -P "${args[2]}"
+    else
+        wget "${args[0]}" -P .
+    fi
+elif [ "$namearg" == 'go' ]; then
+    if [ "$2" == 'up' ]; then
+        cd ..
+    elif [ "$2" == 'back' ]; then
+        cd $OLDPWD
+    else
+    cd "$2"
+    fi
 fi
 }
