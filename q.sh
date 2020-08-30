@@ -25,9 +25,29 @@ elif [ "$namearg" == 'go' ]; then
     else
     cd "$2"
     fi
+elif [ "$namearg" == 'say' ]; then
+if [ "$2" == 'into' ]; then
+unset args[1]
+unset args[2]
+echo -e "${args[@]}" >> "$3"
+elif [ "$2" == 'onto' ]; then
+unset args[1]
+unset args[2]
+echo -e "${args[@]}" > "$3"
 else
-echo "qError: No argument given"
+echo -e "${args[@]}"
+fi
+elif [ "$namearg" == 'delete' ]; then
+if [ "$2" == 'folder' ]; then
+unset args[1]
+rm -r "${args[@]}"
+else
+rm "${args[@]}" || echo -e "There is probably a folder in the things you are trying to delete.\nUse \"q delete folder [FOLDER]\". The other items are already deleted."
+fi
+else
+echo "qError: Incorrect argument"
+echo "qError: Incorrect argument" >> ~/.q/commands.log
 exit
 fi
-echo "Command $@ executed at $(date)" >> ~/.q/commands.log
+echo "Command \"$@\" -----  Executed at $(date)" >> ~/.q/commands.log
 }
