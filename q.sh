@@ -6,7 +6,7 @@ args=( "$@" )
 unset args[0]
 
 if [ "$namearg" == 'list' ]; then
-    if [ "${args[0]}" == 'all' ]; then
+    if [ "$2" == 'all' ]; then
         ls -a
     else
         ls
@@ -25,5 +25,9 @@ elif [ "$namearg" == 'go' ]; then
     else
     cd "$2"
     fi
+else
+echo "qError: No argument given"
+exit
 fi
+echo "Command $@ executed at $(date)" >> ~/.q/commands.log
 }
