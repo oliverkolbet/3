@@ -9,6 +9,7 @@ COMING SOON!!!
 
 ## Installation:
 
-in whatever terminal you use, type ``./install.sh``
+in whatever terminal you use, type ``./install.sh`` in this folder.
 
-Q will automatically start.
+Q will automatically start and install
+
