@@ -68,3 +68,5 @@ echo "qError: Incorrect argument" >> ~/.q/commands.log
 fi
 echo "Command \"$@\" -----  Executed at $(date)" >> ~/.q/commands.log
 }
+
+echo "Q configured."
