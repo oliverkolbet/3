@@ -65,7 +65,6 @@ fi
 else
 echo "qError: Incorrect argument. Use \"q help\" for help."
 echo "qError: Incorrect argument" >> ~/.q/commands.log
-exit
 fi
 echo "Command \"$@\" -----  Executed at $(date)" >> ~/.q/commands.log
 }
