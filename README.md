@@ -13,3 +13,6 @@ in whatever terminal you use, type ``./install.sh`` in this folder.
 
 Q will automatically start and install
 
+If Q is already installed, or an old version, it will update and/or reinstall.
+
+For help in q, type ``q help``.
