@@ -56,11 +56,24 @@ elif [ "$2" == 'say' ]; then
 echo -e "$p> q say\033[00m:\nsay back whatever you typed.\nUsage: \"q say [STUFF]\"\nYou can also say things into files, by using \"q say into [FILE] [STUFF]\"\nwhen saying into files, you can choose \"q say into [FILE] [STUFF]\" or \"q say onto [FILE] [STUFF]\".\nUsing onto will overwrite the file, while using into will add to the file."
 elif [ "$2" == 'delete' ]; then
 echo -e "$p> q delete\033[00m:\nUse q delete to delete any files or folders you want to get rid of.\nWhen deleting folders, use \"q delete folder [FOLDERS]\". All files will be deleted using either one."
+elif [ "$2" == 'log' ]; then
+echo -e "$p> q log\033[00m:\nq log shows you and allows you to edit the log of q commands.\nTo clear the log, use \"q log clear\"."
 elif [ "$2" == 'help' ]; then
 echo -e "Q Help page:"
 q help
 else
-echo -e "$p---Q HELP:---\033[00m\nAll commands are preceded by \"q\".\nType \"q help [COMMAND]\" for help on a command.\nAvailable commands:\nlist, download, go, say, delete, help"
+echo -e "$p---Q HELP:---\033[00m\nAll commands are preceded by \"q\".\nType \"q help [COMMAND]\" for help on a command.\nAvailable commands:\nlist, download, go, say, delete, help, log"
+fi
+elif [ "$namearg" == 'log' ]; then
+if [ "$2" == 'clear' ]; then
+echo -n "Are you sure you want to clear the qLog?[y/n]:"
+read c
+if [ "$c" == 'y' ]; then
+echo "Log cleared."
+echo "-------------------------qLog for Q commands-------------------------" > ~/.q/commands.log
+fi
+else
+nano ~/.q/commands.log
 fi
 else
 echo "qError: Incorrect argument. Use \"q help\" for help."
